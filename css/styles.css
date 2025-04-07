@@ -1,21 +1,324 @@
-/* Adicione ao seu CSS */
+/* MicroPig Innovations - Enhanced CSS */
+
 :root {
-    --industry-blue: #0A3D62;     /* Azul confiável e profissional */
-    --tech-purple: #6A0DAD;       /* Roxo para inovação/tecnologia */
-    --agriculture-green: #2E7D32; /* Verde para sustentabilidade/agropecuária */
-    --science-teal: #00796B;      /* Azul-esverdeado para ciência */
+    /* Primary Color Palette */
+    --industry-blue: #0A3D62;     /* Primary brand color */
+    --agriculture-green: #2E7D32; /* Call-to-action and highlights */
+    --science-teal: #00796B;      /* Secondary accent */
+    --tech-purple: #6A0DAD;       /* Innovation highlights */
+    
+    /* Extended Palette */
+    --blue-light: #E3F2FD;        /* Background for blue sections */
+    --green-light: #E8F5E9;       /* Background for sustainability sections */
+    --gray-light: #F5F7FA;        /* General light background */
+    --text-dark: #263238;         /* Primary text */
+    --text-medium: #546E7A;       /* Secondary text */
   }
   
+  /* Global Styles */
+  body {
+    font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--industry-blue);
+  }
+  
+  /* Animation Classes */
+  .animate-fade-in {
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  /* Navigation */
+  nav {
+    transition: all 0.3s ease;
+  }
+  
+  nav.scrolled {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  /* Section Styling */
+  section {
+    scroll-margin-top: 80px; /* For smooth scrolling with fixed header */
+  }
+  
+  .section-heading {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+  }
+  
+  .section-heading:after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 4px;
+    background-color: var(--agriculture-green);
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  /* Research Section Cards */
+  .research-card {
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border-top: 4px solid transparent;
+  }
+  
+  .research-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+    border-top-color: var(--agriculture-green);
+  }
+  
+  .icon-circle {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    background-color: var(--blue-light);
+    color: var(--industry-blue);
+    transition: all 0.3s ease;
+  }
+  
+  .research-card:hover .icon-circle {
+    background-color: var(--industry-blue);
+    color: white;
+  }
+  
+  /* Impact Section */
+  .benefit-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+  }
+  
+  .benefit-card:hover {
+    border-left-color: var(--agriculture-green);
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  
+  .benefit-title {
+    color: var(--industry-blue);
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+  
+  .benefit-metric {
+    color: var(--agriculture-green);
+    font-weight: 500;
+    font-size: 0.875rem;
+  }
+  
+  /* Resource Cards */
+  .resource-filter-button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .resource-filter-button.active {
+    background-color: var(--industry-blue);
+    color: white;
+  }
+  
+  .resource-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    border-radius: 0.75rem;
+  }
+  
+  .resource-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .resource-card .tag {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    z-index: 10;
+  }
+  
+  .resource-card .tag.video {
+    background-color: var(--agriculture-green);
+    color: white;
+  }
+  
+  .resource-card .tag.guide {
+    background-color: var(--science-teal);
+    color: white;
+  }
+  
+  .resource-card .tag.infographic {
+    background-color: var(--tech-purple);
+    color: white;
+  }
+  
+  /* Contact Section */
+  .contact-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    transition: all 0.3s ease;
+  }
+  
+  .contact-input:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+  }
+  
+  .contact-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  .social-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: all 0.3s ease;
+  }
+  
+  .social-icon:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  /* Footer */
+  footer a {
+    transition: all 0.2s ease;
+    color: var(--gray-300);
+  }
+  
+  footer a:hover {
+    color: white;
+  }
+  
+  /* Media Queries */
+  @media (max-width: 768px) {
+    .hero-heading {
+      font-size: 2.5rem;
+    }
+    
+    .content-overlay {
+      padding: 25px;
+    }
+    
+    .benefit-card {
+      padding: 1rem;
+    }
+  }
+  
+  /* Animation Delays for Sequenced Animations */
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+  
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+  
+  .delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  /* Multilingual Support */
+  [lang="pt-BR"] .hero-heading {
+    font-size: calc(2rem + 2vw); /* Accommodate potentially longer Portuguese text */
+  }: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-link {
+    color: var(--text-dark);
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 2px;
+    transition: color 0.3s;
+  }
+  
+  .nav-link:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: var(--agriculture-green);
+    transition: width 0.3s;
+  }
+  
+  .nav-link:hover, .nav-link.active {
+    color: var(--agriculture-green);
+  }
+  
+  .nav-link:hover:after, .nav-link.active:after {
+    width: 100%;
+  }
+  
+  /* Hero Section */
   .video-background {
-    opacity: 0.15; /* Valor baixo para garantir alta legibilidade */
+    opacity: 0.15;
   }
   
   .content-overlay {
-    background-color: rgba(10, 61, 98, 0.7); /* Fundo semitransparente baseado na cor da indústria */
+    background-color: rgba(10, 61, 98, 0.8);
     border-radius: 15px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-    padding: 30px;
-    backdrop-filter: blur(5px); /* Efeito de desfoque atrás do texto */
+    padding: 40px;
+    backdrop-filter: blur(8px);
   }
   
   .hero-heading {
@@ -32,17 +335,20 @@
     font-weight: 500;
   }
   
+  /* Buttons */
   .primary-button {
     background-color: var(--agriculture-green);
     color: white;
     font-weight: 600;
     transition: all 0.3s;
     border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
   .primary-button:hover {
-    background-color: #39a845; /* Verde mais claro no hover */
+    background-color: #39a845; /* Lighter green */
     transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
   }
   
   .secondary-button {
@@ -52,34 +358,65 @@
     font-weight: 600;
     transition: all 0.3s;
   }
-  
-  .secondary-button:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
   
-  .nav-bar {
-    background-color: var(--industry-blue);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  #innovation-cycle .grid > div {
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
   }
   
-  .nav-link {
-    color: white;
-    font-weight: 500;
-    position: relative;
+  #innovation-cycle .grid > div:nth-child(1) {
+    animation-delay: 0.1s;
   }
   
-  .nav-link:after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -3px;
-    left: 0;
-    background-color: var(--agriculture-green);
-    transition: width 0.3s;
+  #innovation-cycle .grid > div:nth-child(2) {
+    animation-delay: 0.3s;
   }
   
-  .nav-link:hover:after {
-    width: 100%;
+  #innovation-cycle .grid > div:nth-child(3) {
+    animation-delay: 0.5s;
+  }
+  
+  #innovation-cycle .grid > div:nth-child(4) {
+    animation-delay: 0.7s;
+  }
+  
+  /* Hover effects for each step */
+  #innovation-cycle .grid > div {
+    transition: all 0.3s ease;
+  }
+  
+  #innovation-cycle .grid > div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+  
+  /* Ensure the arrows are more visible on hover */
+  #innovation-cycle .grid > div:hover svg {
+    color: var(--agriculture-green);
+    transform: translate(5px, -50%);
+    transition: all 0.3s ease;
+  }
+  
+  /* Mobile enhancements */
+  @media (max-width: 768px) {
+    #innovation-cycle .grid > div {
+      position: relative;
+      padding-bottom: 2rem;
+    }
+    
+    #innovation-cycle .grid > div:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      height: 1.5rem;
+      background: var(--agriculture-green);
+      transform: translateX(-50%);
+    }
   }
