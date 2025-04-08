@@ -1,14 +1,15 @@
-// Updated Mobile Navigation JavaScript with Green Navbar
+// Updated Mobile Navigation JavaScript
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu toggle functionality
     const menuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
     const closeMenuButton = document.getElementById('close-menu-button');
-    const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
     
     // Show/hide menu functions
     function openMobileMenu() {
-      mobileMenu.classList.remove('translate-x-full', 'hidden');
+      mobileMenu.classList.remove('translate-x-full');
+      mobileMenu.classList.remove('hidden');
       document.body.classList.add('overflow-hidden');
     }
     
@@ -21,23 +22,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Toggle mobile menu
-    if (menuButton) {
-      menuButton.addEventListener('click', openMobileMenu);
-    }
-    
-    if (closeMenuButton) {
-      closeMenuButton.addEventListener('click', closeMobileMenu);
-    }
+    menuButton.addEventListener('click', openMobileMenu);
+    closeMenuButton.addEventListener('click', closeMobileMenu);
     
     // Close menu when clicking links
     mobileMenuLinks.forEach(link => {
       link.addEventListener('click', function(e) {
-        e.preventDefault();
+        // Only prevent default if it's an anchor link
+        if (this.getAttribute('href').startsWith('#')) {
+          e.preventDefault();
+        }
+        
         closeMobileMenu();
         
-        // Handle smooth scrolling to section
+        // Handle smooth scrolling to section for anchor links
         const targetId = this.getAttribute('href');
-        if (targetId && targetId.startsWith('#')) {
+        if (targetId.startsWith('#')) {
           const targetElement = document.querySelector(targetId);
           if (targetElement) {
             setTimeout(() => {
@@ -53,50 +53,60 @@ document.addEventListener('DOMContentLoaded', function() {
   
     // Handle navbar appearance on scroll
     const nav = document.querySelector('nav');
-    const hero = document.getElementById('hero');
     
     function updateNavbarOnScroll() {
-      const heroBottom = hero.getBoundingClientRect().bottom;
-      
-      if (heroBottom <= 80) {
-        // Past the hero section - use green navbar
-        nav.classList.remove('bg-white/70', 'bg-white/95');
-        nav.classList.add('bg-green-700', 'text-white', 'shadow-lg');
+      if (window.scrollY > 10) {
+        nav.classList.add('shadow-lg');
+        nav.classList.add('bg-white/95');
+        nav.classList.remove('bg-white/70');
       } else {
-        // On hero section - use transparent/white navbar
-        nav.classList.remove('bg-green-700', 'text-white');
-        
-        if (window.scrollY > 10) {
-          nav.classList.add('bg-white/95', 'shadow-lg');
-          nav.classList.remove('bg-white/70');
-        } else {
-          nav.classList.add('bg-white/70');
-          nav.classList.remove('bg-white/95', 'shadow-lg');
-        }
-        nav.classList.add('text-gray-800');
+        nav.classList.remove('shadow-lg');
+        nav.classList.add('bg-white/70');
+        nav.classList.remove('bg-white/95');
       }
     }
     
     window.addEventListener('scroll', updateNavbarOnScroll);
     updateNavbarOnScroll(); // Initialize on page load
     
-    // Smooth scrolling for all anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        // Skip if it's a mobile menu link (already handled)
-        const isMobileMenuLink = Array.from(mobileMenuLinks).includes(this);
-        if (isMobileMenuLink) return;
-        
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 80,
-            behavior: 'smooth'
-          });
+    // Scroll to top button functionality
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    if (scrollToTopBtn) {
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 500) {
+          scrollToTopBtn.classList.add('opacity-100');
+          scrollToTopBtn.classList.remove('invisible');
+        } else {
+          scrollToTopBtn.classList.remove('opacity-100');
+          scrollToTopBtn.classList.add('invisible');
         }
       });
-    });
+      
+      scrollToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    }
+    
+    // Animate elements on scroll
+    const animateOnScroll = function() {
+      const elements = document.querySelectorAll('.slide-up');
+      
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (elementPosition < windowHeight * 0.85) {
+          element.classList.add('active');
+        }
+      });
+    };
+    
+    // Run on page load
+    animateOnScroll();
+    
+    // Run on scroll
+    window.addEventListener('scroll', animateOnScroll);
 });
