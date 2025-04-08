@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
           
           if (heroBottom <= 80) {
             // Past hero section - green background
-            nav.classList.add('bg-green-700', 'text-white');
+            nav.classList.add('bg-green-500', 'text-white');
             nav.classList.remove('bg-white/70', 'bg-white/95', 'text-gray-800');
             
             // Make sure all text in nav elements is white when background is green

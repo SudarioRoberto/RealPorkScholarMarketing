@@ -338,7 +338,7 @@
 <!-- Replace your current navigation section with this improved version -->
 <!-- Update your navbar with this code -->
 <!-- Replace your entire current navbar with this -->
-<nav id="navbar" class="fixed w-full px-6 md:px-12 py-4 bg-white shadow-sm z-50 transition-all duration-300">
+<nav id="navbar" class="fixed w-full px-6 md:px-12 py-4 bg-green-40 shadow-lg z-40 transition-all duration-300">
     <div class="max-w-6xl mx-auto flex justify-between items-center">
       
       <!-- Left side: Logo -->
@@ -1531,54 +1531,5 @@
     // Run on scroll
     window.addEventListener('scroll', animateOnScroll);
   </script>
-<script>
-    const nav = document.getElementById('navbar');
-    const hero = document.getElementById('hero');
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const closeMenuButton = document.getElementById('close-menu-button');
-    
-    // Mobile menu toggle functionality
-    function openMobileMenu() {
-      mobileMenu.classList.remove('translate-x-full');
-      mobileMenu.classList.remove('hidden');
-      document.body.classList.add('overflow-hidden');
-    }
-    
-    function closeMobileMenu() {
-      mobileMenu.classList.add('translate-x-full');
-      setTimeout(() => {
-        mobileMenu.classList.add('hidden');
-      }, 300);
-      document.body.classList.remove('overflow-hidden');
-    }
-    
-    // Event listeners
-    mobileMenuButton.addEventListener('click', openMobileMenu);
-    closeMenuButton.addEventListener('click', closeMobileMenu);
-    
-    // Navbar color handling
-    function updateNavbarOnScroll() {
-  if (!nav) return; // Safety check
-  
-  if (window.scrollY > 10) {
-    // When scrolled - white with very subtle green border
-    nav.classList.add('shadow-md');
-    nav.classList.add('border-b');
-    nav.classList.add('border-green-600/10');
-  } else {
-    // Top of page - clean white
-    nav.classList.remove('shadow-md');
-    nav.classList.remove('border-b');
-    nav.classList.remove('border-green-600/10');
-  }
-}
-    
-    window.addEventListener('scroll', updateNavbarOnScroll);
-    updateNavbarOnScroll(); // Initialize on page load
-  </script>
-
-<script src="js/main.js"></script>
-
 </body>
         

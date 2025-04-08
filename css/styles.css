@@ -729,21 +729,21 @@
   }
   /* Subtle green underline for nav links on hover */
 .nav-link {
-    position: relative;
-    padding: 0.5rem 0;
-  }
-  
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #059669; /* Green-600 color */
-    transition: width 0.3s ease;
-  }
-  
-  .nav-link:hover::after {
-    width: 10%;
-  }
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #059669; /* Green-600 color */
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
