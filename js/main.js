@@ -1,12 +1,15 @@
 // Updated Mobile Navigation JavaScript
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu toggle functionality
-    const menuButton = document.getElementById('mobile-menu-button');
+    // Get elements
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
     const closeMenuButton = document.getElementById('close-menu-button');
+    const hero = document.getElementById('hero'); // Add this line to define the hero element
+    const nav = document.querySelector('nav');
+    // Fix: Get all links in the mobile menu
     const mobileMenuLinks = mobileMenu.querySelectorAll('a');
     
-    // Show/hide menu functions
+    // Mobile menu toggle functionality
     function openMobileMenu() {
       mobileMenu.classList.remove('translate-x-full');
       mobileMenu.classList.remove('hidden');
@@ -17,12 +20,12 @@ document.addEventListener('DOMContentLoaded', function() {
       mobileMenu.classList.add('translate-x-full');
       setTimeout(() => {
         mobileMenu.classList.add('hidden');
-      }, 300); // Match this with transition duration
+      }, 300);
       document.body.classList.remove('overflow-hidden');
     }
     
-    // Toggle mobile menu
-    menuButton.addEventListener('click', openMobileMenu);
+    // Event listeners
+    mobileMenuButton.addEventListener('click', openMobileMenu);
     closeMenuButton.addEventListener('click', closeMobileMenu);
     
     // Close menu when clicking links
@@ -52,18 +55,61 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   
     // Handle navbar appearance on scroll
-    const nav = document.querySelector('nav');
-    
     function updateNavbarOnScroll() {
-      if (window.scrollY > 10) {
-        nav.classList.add('shadow-lg');
-        nav.classList.add('bg-white/95');
-        nav.classList.remove('bg-white/70');
-      } else {
-        nav.classList.remove('shadow-lg');
-        nav.classList.add('bg-white/70');
-        nav.classList.remove('bg-white/95');
-      }
+        if (!hero) {
+          // Fallback if hero element doesn't exist
+          if (window.scrollY > 10) {
+            nav.classList.add('shadow-lg', 'bg-white/95');
+            nav.classList.remove('bg-white/70');
+          } else {
+            nav.classList.remove('shadow-lg');
+            nav.classList.add('bg-white/70');
+            nav.classList.remove('bg-white/95');
+          }
+          return;
+        }
+        
+        const heroBottom = hero.getBoundingClientRect().bottom;
+        
+        if (window.scrollY > 10) {
+          nav.classList.add('shadow-lg');
+          
+          if (heroBottom <= 80) {
+            // Past hero section - green background
+            nav.classList.add('bg-green-700', 'text-white');
+            nav.classList.remove('bg-white/70', 'bg-white/95', 'text-gray-800');
+            
+            // Make sure all text in nav elements is white when background is green
+            const navLinks = nav.querySelectorAll('.nav-link, .text-gray-800, .text-gray-500');
+            navLinks.forEach(link => {
+              link.classList.add('text-white');
+              link.classList.remove('text-gray-800', 'text-gray-500');
+            });
+            
+          } else {
+            // On hero section but scrolled a bit - translucent white
+            nav.classList.add('bg-white/95');
+            nav.classList.remove('bg-white/70', 'bg-green-700', 'text-white');
+            
+            // Restore original text colors
+            const navLinks = nav.querySelectorAll('.nav-link, .text-white');
+            navLinks.forEach(link => {
+              link.classList.remove('text-white');
+              link.classList.add('text-gray-800');
+            });
+          }
+        } else {
+          // Top of page - transparent white
+          nav.classList.remove('shadow-lg', 'bg-white/95', 'bg-green-700', 'text-white');
+          nav.classList.add('bg-white/70', 'text-gray-800');
+          
+          // Restore original text colors
+          const navLinks = nav.querySelectorAll('.nav-link, .text-white');
+          navLinks.forEach(link => {
+            link.classList.remove('text-white');
+            link.classList.add('text-gray-800');
+          });
+        }
     }
     
     window.addEventListener('scroll', updateNavbarOnScroll);
