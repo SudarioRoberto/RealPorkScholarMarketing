@@ -420,3 +420,119 @@
       transform: translateX(-50%);
     }
   }
+
+  /* Additional Styling for Mobile */
+
+/* Fixed navigation for mobile */
+@media (max-width: 768px) {
+    nav {
+      background-color: rgba(255, 255, 255, 0.95) !important;
+      backdrop-filter: blur(10px);
+    }
+    
+    /* Prevent nav bar from changing color incorrectly on mobile */
+    nav.bg-green-700 {
+      background-color: rgba(255, 255, 255, 0.95) !important;
+    }
+    
+    /* Mobile menu button styling */
+    button.md\:hidden {
+      padding: 8px;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+    
+    button.md\:hidden:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+    
+    /* Improved mobile menu styling */
+    .mobile-menu {
+      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .mobile-menu a {
+      display: block;
+      transition: all 0.2s ease;
+    }
+    
+    .mobile-menu a:hover {
+      color: #2E7D32;
+      padding-left: 5px;
+    }
+    
+    /* Enhanced innovation cycle for mobile */
+    @media (max-width: 768px) {
+      .cycle-card {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .cycle-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      }
+      
+      /* Animation for cycle return arrow */
+      @keyframes arrowPulse {
+        0% { opacity: 0.6; transform: scale(0.98); }
+        50% { opacity: 1; transform: scale(1.02); }
+        100% { opacity: 0.6; transform: scale(0.98); }
+      }
+      
+      /* Apply animation to return arrow */
+      .cycle-card + .mt-8 svg {
+        animation: arrowPulse 2s ease-in-out infinite;
+      }
+    }
+    
+    /* Fix for scroll to top button on mobile */
+    #scrollToTop {
+      bottom: 20px;
+      right: 20px;
+      height: 44px;
+      width: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+      border: none;
+      z-index: 100;
+    }
+    
+    /* Improved mobile modals */
+    @media (max-width: 768px) {
+      #sudarioModal .bg-white,
+      #pedroModal .bg-white,
+      #andresModal .bg-white {
+        border-radius: 16px 16px 0 0;
+        margin-top: auto;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+    }
+  }
+  
+  /* Animate the innovation cycle steps for visual clarity */
+  @keyframes highlightStep {
+    0% { box-shadow: 0 0 0 rgba(46, 125, 50, 0); }
+    50% { box-shadow: 0 0 15px rgba(46, 125, 50, 0.3); }
+    100% { box-shadow: 0 0 0 rgba(46, 125, 50, 0); }
+  }
+  
+  .md\:hidden + .mobile-menu .cycle-card {
+    animation: highlightStep 3s ease-in-out;
+  }
+  
+  /* Fix for sticky nav z-index issues */
+  nav {
+    z-index: 1000 !important;
+  }
+  
+  /* Improve mobile form interactions */
+  @media (max-width: 768px) {
+    input, select, textarea {
+      font-size: 16px !important; /* Prevents iOS zoom on focus */
+    }
+  }

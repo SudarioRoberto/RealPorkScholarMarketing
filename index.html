@@ -732,7 +732,7 @@
   </section>
   
 
-<!-- Our Approach Section - Modern visual innovation cycle -->
+<!-- Fixed Innovation Cycle - Mobile-friendly version -->
 <section id="approach" class="py-20 px-6 md:px-12 bg-white">
     <div class="container mx-auto max-w-6xl">
       <div class="text-center mb-16">
@@ -773,8 +773,8 @@
         </div>
       </div>
       
-      <!-- Innovation Cycle - Modern Visual Representation -->
-      <div class="mt-32 mb-16">
+      <!-- Innovation Cycle - Improved for Mobile -->
+      <div class="mt-20 mb-16">
         <h3 class="text-3xl font-bold mb-12 text-center">Our Responsible Innovation Cycle</h3>
         
         <!-- Desktop version with connected cards -->
@@ -819,8 +819,8 @@
                 <p class="text-gray-600">Incorporating real-world results and stakeholder insights to refine innovations</p>
               </div>
               <!-- Arrow pointing to next step (returning to step 1) -->
-              <svg class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-4" width="30" height="100" viewBox="0 0 30 100">
-                <path d="M15 100 V30 M5 40 L15 20 L25 40" fill="none" stroke="#2E7D32" stroke-width="2"/>
+              <svg class="absolute top-1/2 -left-28" width="100" height="30" viewBox="0 0 100 30">
+                <path d="M100 15 H10 M20 5 L0 15 L20 25" fill="none" stroke="#2E7D32" stroke-width="2"/>
               </svg>
             </div>
             
@@ -831,74 +831,90 @@
                 <h4 class="font-bold text-xl mb-3 pl-10">Intended Audience</h4>
                 <p class="text-gray-600">Tailoring solutions for producers, veterinarians, and industry partners</p>
               </div>
-              <!-- Arrow pointing to next step -->
-              <svg class="absolute top-1/2 -left-28 transform -translate-y-1/2" width="100" height="30" viewBox="0 0 100 30">
+              <!-- Arrow pointing to previous step -->
+              <svg class="absolute top-1/2 -left-28" width="100" height="30" viewBox="0 0 100 30">
                 <path d="M100 15 H10 M20 5 L0 15 L20 25" fill="none" stroke="#2E7D32" stroke-width="2"/>
               </svg>
             </div>
           </div>
+          
+          <!-- Extra visual indicator for cycle completion -->
+          <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center z-0">
+            <svg width="60" height="60" viewBox="0 0 60 60" class="text-green-600 opacity-40">
+              <path d="M30 5 A25 25 0 1 1 5 30 A25 25 0 0 1 30 5 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+              <path d="M30 0 L30 10 M5 30 L15 30 M30 60 L30 50 M55 30 L45 30" fill="none" stroke="currentColor" stroke-width="2"/>
+              <path d="M30 5 L25 15 L35 15 Z" fill="currentColor"/>
+            </svg>
+          </div>
         </div>
         
-        <!-- Mobile version with stacked cards -->
-        <div class="md:hidden space-y-12">
-          <!-- Step 1 -->
-          <div class="cycle-card">
-            <div class="bg-white rounded-xl shadow-lg p-6 relative">
-              <div class="cycle-number absolute -top-4 -left-4 w-12 h-12 rounded-full bg-green-600 text-white text-xl font-bold flex items-center justify-center">1</div>
+        <!-- Improved Mobile version with clearer cycle indicators -->
+        <div class="md:hidden space-y-6">
+          <!-- Mobile cycle container with visual circle indicator -->
+          <div class="relative pb-12">
+            <div class="absolute inset-0 flex items-center justify-center z-0">
+              <div class="w-1/2 h-full border-4 border-dashed border-green-100 rounded-full opacity-30"></div>
+            </div>
+          
+            <!-- Step 1 -->
+            <div class="cycle-card bg-white rounded-xl shadow-lg p-6 relative mb-12">
+              <div class="cycle-number absolute -top-4 -left-4 w-12 h-12 rounded-full bg-green-600 text-white text-xl font-bold flex items-center justify-center shadow-md">1</div>
               <h4 class="font-bold text-lg mb-2 pl-8">Innovation Development</h4>
               <p class="text-gray-600 text-sm">Developing targeted solutions based on scientific research and stakeholder needs</p>
+              
+              <!-- Downward arrow with animation -->
+              <div class="flex justify-center my-4 absolute -bottom-10 left-1/2 transform -translate-x-1/2 animate-pulse">
+                <svg width="24" height="40" viewBox="0 0 24 40">
+                  <path d="M12 0 V30 M4 22 L12 34 L20 22" fill="none" stroke="#2E7D32" stroke-width="2"/>
+                </svg>
+              </div>
             </div>
-            <!-- Downward arrow -->
-            <div class="flex justify-center my-4">
-              <svg width="24" height="30" viewBox="0 0 24 30">
-                <path d="M12 0 V20 M4 12 L12 24 L20 12" fill="none" stroke="#2E7D32" stroke-width="2"/>
-              </svg>
-            </div>
-          </div>
-          
-          <!-- Step 2 -->
-          <div class="cycle-card">
-            <div class="bg-white rounded-xl shadow-lg p-6 relative">
-              <div class="cycle-number absolute -top-4 -left-4 w-12 h-12 rounded-full bg-green-600 text-white text-xl font-bold flex items-center justify-center">2</div>
+            
+            <!-- Step 2 -->
+            <div class="cycle-card bg-white rounded-xl shadow-lg p-6 relative mb-12 ml-6">
+              <div class="cycle-number absolute -top-4 -left-4 w-12 h-12 rounded-full bg-green-600 text-white text-xl font-bold flex items-center justify-center shadow-md">2</div>
               <h4 class="font-bold text-lg mb-2 pl-8">Adoption Strategies</h4>
               <p class="text-gray-600 text-sm">Creating practical implementation paths for on-farm application</p>
+              
+              <!-- Downward arrow with animation -->
+              <div class="flex justify-center my-4 absolute -bottom-10 left-1/2 transform -translate-x-1/2 animate-pulse">
+                <svg width="24" height="40" viewBox="0 0 24 40">
+                  <path d="M12 0 V30 M4 22 L12 34 L20 22" fill="none" stroke="#2E7D32" stroke-width="2"/>
+                </svg>
+              </div>
             </div>
-            <!-- Downward arrow -->
-            <div class="flex justify-center my-4">
-              <svg width="24" height="30" viewBox="0 0 24 30">
-                <path d="M12 0 V20 M4 12 L12 24 L20 12" fill="none" stroke="#2E7D32" stroke-width="2"/>
-              </svg>
-            </div>
-          </div>
-          
-          <!-- Step 3 -->
-          <div class="cycle-card">
-            <div class="bg-white rounded-xl shadow-lg p-6 relative">
-              <div class="cycle-number absolute -top-4 -left-4 w-12 h-12 rounded-full bg-green-600 text-white text-xl font-bold flex items-center justify-center">3</div>
+            
+            <!-- Step 3 -->
+            <div class="cycle-card bg-white rounded-xl shadow-lg p-6 relative mb-12 ml-12">
+              <div class="cycle-number absolute -top-4 -left-4 w-12 h-12 rounded-full bg-green-600 text-white text-xl font-bold flex items-center justify-center shadow-md">3</div>
               <h4 class="font-bold text-lg mb-2 pl-8">Intended Audience</h4>
               <p class="text-gray-600 text-sm">Tailoring solutions for producers, veterinarians, and industry partners</p>
+              
+              <!-- Downward arrow with animation -->
+              <div class="flex justify-center my-4 absolute -bottom-10 left-1/2 transform -translate-x-1/2 animate-pulse">
+                <svg width="24" height="40" viewBox="0 0 24 40">
+                  <path d="M12 0 V30 M4 22 L12 34 L20 22" fill="none" stroke="#2E7D32" stroke-width="2"/>
+                </svg>
+              </div>
             </div>
-            <!-- Downward arrow -->
-            <div class="flex justify-center my-4">
-              <svg width="24" height="30" viewBox="0 0 24 30">
-                <path d="M12 0 V20 M4 12 L12 24 L20 12" fill="none" stroke="#2E7D32" stroke-width="2"/>
-              </svg>
-            </div>
-          </div>
-          
-          <!-- Step 4 -->
-          <div class="cycle-card">
-            <div class="bg-white rounded-xl shadow-lg p-6 relative">
-              <div class="cycle-number absolute -top-4 -left-4 w-12 h-12 rounded-full bg-green-600 text-white text-xl font-bold flex items-center justify-center">4</div>
+            
+            <!-- Step 4 -->
+            <div class="cycle-card bg-white rounded-xl shadow-lg p-6 relative ml-6">
+              <div class="cycle-number absolute -top-4 -left-4 w-12 h-12 rounded-full bg-green-600 text-white text-xl font-bold flex items-center justify-center shadow-md">4</div>
               <h4 class="font-bold text-lg mb-2 pl-8">Integrated Feedback</h4>
               <p class="text-gray-600 text-sm">Incorporating real-world results and stakeholder insights to refine innovations</p>
             </div>
-            <!-- Circular arrow -->
-            <div class="flex justify-center my-4">
-              <svg width="50" height="30" viewBox="0 0 50 30">
-                <path d="M25 0 V10 H45 A15 15 0 0 1 25 30 A15 15 0 0 1 5 10 H15" fill="none" stroke="#2E7D32" stroke-width="2"/>
-                <path d="M15 5 L5 10 L15 15" fill="none" stroke="#2E7D32" stroke-width="2"/>
-              </svg>
+            
+            <!-- Circular return arrow animation -->
+            <div class="mt-8 flex justify-center w-full">
+              <div class="relative w-full max-w-xs h-24 flex items-center justify-center">
+                <svg class="w-full" viewBox="0 0 200 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M190 35 H30 C25 35 10 35 10 10 C10 0 20 0 30 0 H170" 
+                        stroke="#2E7D32" stroke-width="2" stroke-dasharray="6 4"/>
+                  <path d="M160 10 L180 0 L180 20" fill="none" stroke="#2E7D32" stroke-width="2"/>
+                  <text x="75" y="55" font-family="sans-serif" font-size="12" fill="#2E7D32">Back to Step 1</text>
+                </svg>
+              </div>
             </div>
           </div>
         </div>
