@@ -719,3 +719,31 @@
   #mobile-menu-button:hover {
     background-color: rgba(0, 0, 0, 0.05);
   }
+  .bg-green-700-transparent {
+    background-color: rgba(27, 91, 63, 0.85); /* Green with 85% opacity */
+    backdrop-filter: blur(5px); /* Optional: adds a slight blur effect */
+  }
+  .subtle-green {
+    background-color: rgba(240, 253, 244, 0.9); /* Very light green with transparency */
+    backdrop-filter: blur(8px);
+  }
+  /* Subtle green underline for nav links on hover */
+.nav-link {
+    position: relative;
+    padding: 0.5rem 0;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #059669; /* Green-600 color */
+    transition: width 0.3s ease;
+  }
+  
+  .nav-link:hover::after {
+    width: 10%;
+  }
