@@ -76,37 +76,37 @@ document.addEventListener('DOMContentLoaded', function() {
           
           if (heroBottom <= 80) {
             // Past hero section - green background
-            nav.classList.add('bg-green-500', 'text-white');
-            nav.classList.remove('bg-white/70', 'bg-white/95', 'text-gray-800');
+            nav.classList.add('bg-green-50', 'text-gray-800');
+            nav.classList.remove('text-gray-800', 'bg-white', 'text-gray-800');
             
             // Make sure all text in nav elements is white when background is green
             const navLinks = nav.querySelectorAll('.nav-link, .text-gray-800, .text-gray-500');
             navLinks.forEach(link => {
-              link.classList.add('text-white');
-              link.classList.remove('text-gray-800', 'text-gray-500');
+              link.classList.add('text-gray-800');
+              link.classList.remove('bg-white', 'text-gray-500');
             });
             
           } else {
             // On hero section but scrolled a bit - translucent white
-            nav.classList.add('bg-white/95');
-            nav.classList.remove('bg-white/70', 'bg-green-700', 'text-white');
+            nav.classList.add('text-gray-800');
+            nav.classList.remove('text-gray-800', 'bg-green-700', 'text-gray-800');
             
             // Restore original text colors
-            const navLinks = nav.querySelectorAll('.nav-link, .text-white');
+            const navLinks = nav.querySelectorAll('.nav-link, .text-gray-800');
             navLinks.forEach(link => {
-              link.classList.remove('text-white');
+              link.classList.remove('text-gray-800');
               link.classList.add('text-gray-800');
             });
           }
         } else {
           // Top of page - transparent white
-          nav.classList.remove('shadow-lg', 'bg-white/95', 'bg-green-700', 'text-white');
+          nav.classList.remove('shadow-lg', 'bg-white/95', 'bg-green-700', 'text-gray-800');
           nav.classList.add('bg-white/70', 'text-gray-800');
           
           // Restore original text colors
-          const navLinks = nav.querySelectorAll('.nav-link, .text-white');
+          const navLinks = nav.querySelectorAll('.nav-link, .text-gray-800');
           navLinks.forEach(link => {
-            link.classList.remove('text-white');
+            link.classList.remove('text-gray-800');
             link.classList.add('text-gray-800');
           });
         }
