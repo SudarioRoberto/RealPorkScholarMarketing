@@ -2,6 +2,14 @@
 
 :root {
     /* Primary Color Palette */
+    --primary: #1B5B3F;         /* Deep green for main brand color */
+    --primary-light: #21A179;   /* Lighter green for accents */
+    --secondary: #2C3E50;       /* Deep blue-gray for secondary elements */
+    --accent: #E67E22;          /* Orange accent for calls-to-action */
+    --neutral-light: #ECF0F1;   /* Light gray for backgrounds */
+    --neutral-dark: #34495E;    /* Dark blue-gray for text */
+    
+    /* Extended Palette */
     --industry-blue: #0A3D62;     /* Primary brand color */
     --agriculture-green: #2E7D32; /* Call-to-action and highlights */
     --science-teal: #00796B;      /* Secondary accent */
@@ -20,10 +28,12 @@
     font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
     color: var(--text-dark);
     line-height: 1.6;
+    scroll-behavior: smooth;
   }
   
   h1, h2, h3, h4, h5, h6 {
     color: var(--industry-blue);
+    font-family: 'Montserrat', sans-serif;
   }
   
   /* Animation Classes */
@@ -47,7 +57,7 @@
   
   /* Navigation */
   nav {
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
   }
   
   nav.scrolled {
@@ -277,10 +287,9 @@
   /* Multilingual Support */
   [lang="pt-BR"] .hero-heading {
     font-size: calc(2rem + 2vw); /* Accommodate potentially longer Portuguese text */
-  }: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
   
+  /* Nav Link Styling */
   .nav-link {
     color: var(--text-dark);
     font-weight: 500;
@@ -358,11 +367,8 @@
     font-weight: 600;
     transition: all 0.3s;
   }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
   
+  /* Innovation Cycle Animation */
   #innovation-cycle .grid > div {
     animation: fadeIn 0.5s ease-out forwards;
     opacity: 0;
@@ -420,171 +426,231 @@
       transform: translateX(-50%);
     }
   }
-
-  /* Additional Styling for Mobile */
-
-/* Fixed navigation for mobile */
-@media (max-width: 768px) {
-    nav {
-      background-color: rgba(255, 255, 255, 0.95) !important;
-      backdrop-filter: blur(10px);
-    }
-    
-    /* Prevent nav bar from changing color incorrectly on mobile */
-    nav.bg-green-700 {
-      background-color: rgba(255, 255, 255, 0.95) !important;
-    }
-    
-    /* Mobile menu button styling */
-    button.md\:hidden {
-      padding: 8px;
-      border-radius: 8px;
-      transition: background-color 0.3s;
-    }
-    
-    button.md\:hidden:hover {
-      background-color: rgba(0, 0, 0, 0.05);
-    }
-    
-    /* Improved mobile menu styling */
-    .mobile-menu {
-      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
-    }
-    
-    .mobile-menu a {
-      display: block;
-      transition: all 0.2s ease;
-    }
-    
-    .mobile-menu a:hover {
-      color: #2E7D32;
-      padding-left: 5px;
-    }
-    
-    /* Enhanced innovation cycle for mobile */
-    @media (max-width: 768px) {
-      .cycle-card {
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-      
-      .cycle-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-      }
-      
-      /* Animation for cycle return arrow */
-      @keyframes arrowPulse {
-        0% { opacity: 0.6; transform: scale(0.98); }
-        50% { opacity: 1; transform: scale(1.02); }
-        100% { opacity: 0.6; transform: scale(0.98); }
-      }
-      
-      /* Apply animation to return arrow */
-      .cycle-card + .mt-8 svg {
-        animation: arrowPulse 2s ease-in-out infinite;
-      }
-    }
-    
-    /* Fix for scroll to top button on mobile */
-    #scrollToTop {
-      bottom: 20px;
-      right: 20px;
-      height: 44px;
-      width: 44px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-      border: none;
-      z-index: 100;
-    }
-    
-    /* Improved mobile modals */
-    @media (max-width: 768px) {
-      #sudarioModal .bg-white,
-      #pedroModal .bg-white,
-      #andresModal .bg-white {
-        border-radius: 16px 16px 0 0;
-        margin-top: auto;
-        max-height: 90vh;
-        overflow-y: auto;
-      }
-    }
-  }
   
-  /* Animate the innovation cycle steps for visual clarity */
-  @keyframes highlightStep {
-    0% { box-shadow: 0 0 0 rgba(46, 125, 50, 0); }
-    50% { box-shadow: 0 0 15px rgba(46, 125, 50, 0.3); }
-    100% { box-shadow: 0 0 0 rgba(46, 125, 50, 0); }
-  }
+  /* Mobile Menu and Navbar Styling */
   
-  .md\:hidden + .mobile-menu .cycle-card {
-    animation: highlightStep 3s ease-in-out;
-  }
-  
-  /* Fix for sticky nav z-index issues */
-  nav {
-    z-index: 1000 !important;
-  }
-  
-  /* Improve mobile form interactions */
-  @media (max-width: 768px) {
-    input, select, textarea {
-      font-size: 16px !important; /* Prevents iOS zoom on focus */
-    }
-  }
-  /* Enhanced navbar styling */
-nav#navbar {
-    background-color: rgba(255, 255, 255, 0.9) !important; /* More opaque white background */
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Always show a subtle shadow */
-  }
-  
-  /* Add a subtle border at the bottom for better visibility on white backgrounds */
-  nav#navbar {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  }
-  
-  /* Ensure text is always visible */
-  nav#navbar .nav-link {
-    color: #1a1a1a !important; /* Darker text for better contrast */
-    font-weight: 500;
-  }
-  
-  nav#navbar .nav-link:hover {
-    color: #1B5B3F !important; /* Your primary green color */
-  }
-  
-  /* Mobile menu specific styles */
-  #mobile-menu {
-    background-color: white;
-    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.15);
-    z-index: 9999;
-  }
-  
-  /* Make mobile menu button more visible */
-  #mobile-menu-button {
-    background-color: rgba(0, 0, 0, 0.05);
-    border-radius: 6px;
-    padding: 8px;
-  }
-  
-  /* Ensure the menu is properly positioned */
+  /* Mobile Menu Fixes */
   .mobile-menu {
+    position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
-    width: 280px;
+    left: 0;
+    background-color: white;
+    z-index: 50;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
     overflow-y: auto;
-    overflow-x: hidden;
   }
   
-  /* Fix for transparent navbar on video background */
+  .mobile-menu.active {
+    transform: translateX(0);
+  }
+  
+  /* Green navbar styling */
+  nav.bg-green-700 {
+    background-color: #1B5B3F !important; /* Your primary green */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style adjustments for green navbar */
+  nav.bg-green-700 .nav-link {
+    color: white !important;
+  }
+  
+  nav.bg-green-700 .nav-link::after {
+    background-color: white;
+  }
+  
+  /* Logo text color in green navbar */
+  nav.bg-green-700 .text-gray-800 {
+    color: white !important;
+  }
+  
+  nav.bg-green-700 .text-gray-500,
+  nav.bg-green-700 .text-gray-700,
+  nav.bg-green-700 .text-gray-900 {
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+  
+  /* Navbar visibility improvement */
+  nav {
+    transition: all 0.3s ease;
+    z-index: 1000 !important;
+  }
+  
+  nav.bg-white, 
+  nav.bg-white\/70, 
+  nav.bg-white\/95 {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Always ensure the nav links are visible regardless of background */
+  .nav-link {
+    position: relative;
+    font-weight: 500;
+    color: inherit;
+  }
+  
+  /* Give the mobile menu button better contrast */
+  #mobile-menu-button {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+    color: currentColor;
+  }
+  
+  /* Mobile menu button in green navbar */
+  nav.bg-green-700 #mobile-menu-button {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Style the mobile menu links for better visibility */
+  #mobile-menu a {
+    display: block;
+    padding: 0.75rem 0;
+    color: #4B5563;
+    transition: all 0.2s ease;
+  }
+  
+  #mobile-menu a:hover {
+    color: #1B5B3F; /* Your primary green */
+    padding-left: 0.5rem;
+  }
+  
+  /* Ensure logo is visible on all backgrounds */
+  nav img {
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+  }
+  
+  /* Hamburger button always visible */
+  #mobile-menu-button svg {
+    stroke-width: 2.5px;
+  }
+  
+  /* Improved close button */
+  #close-menu-button {
+    color: #4B5563;
+    padding: 0.5rem;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Ensure contact button stands out in any navbar color */
+  nav .bg-gradient-to-r {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* For better visibility on hero section */
+  #hero nav.bg-white\/70, 
+  #hero nav.bg-white\/95 {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* For original styles in site */
+  .hero-overlay {
+    background: linear-gradient(100deg, rgba(27, 91, 63, 0.9) 0%, rgba(44, 62, 80, 0.85) 100%);
+    backdrop-filter: blur(0px);
+  }
+  
+  .primary-button {
+    background-color: var(--primary);
+    color: white;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .primary-button:hover {
+    background-color: var(--primary-light);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .secondary-button {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    transition: all 0.3s ease;
+  }
+  
+  .secondary-button:hover {
+    background-color: white;
+    color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .accent-button {
+    background-color: var(--accent);
+    color: white;
+    transition: all 0.3s ease;
+  }
+  
+  .accent-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card {
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .feature-card {
+    border-radius: 12px;
+    border-left: 4px solid var(--primary);
+  }
+  
+  /* Animation classes */
+  .fade-in {
+    animation: fadeIn 0.8s ease forwards;
+  }
+  
+  .slide-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease;
+  }
+  
+  .slide-up.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Make sure the mobile menu fills the entire screen */
   @media (max-width: 768px) {
-    nav#navbar {
-      background-color: rgba(255, 255, 255, 0.95) !important;
+    .mobile-menu {
+      width: 100%;
+      height: 100%;
+    }
+    
+    /* Make navbar more compact on mobile */
+    nav {
+      padding-top: 0.5rem !important;
+      padding-bottom: 0.5rem !important;
+    }
+    
+    /* Override the green color to be darker for better visibility */
+    nav.bg-green-700 {
+      background-color: #164430 !important;
+    }
+    
+    /* Improve mobile form interactions */
+    input, select, textarea {
+      font-size: 16px !important; /* Prevents iOS zoom on focus */
+    }
+    
+    /* Fix for sticky nav z-index issues */
+    nav {
+      z-index: 1000 !important;
     }
   }

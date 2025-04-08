@@ -1,10 +1,10 @@
-// Updated Mobile Navigation JavaScript
+// Updated Mobile Navigation JavaScript with Green Navbar
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu toggle functionality
     const menuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
     const closeMenuButton = document.getElementById('close-menu-button');
-    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+    const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
     
     // Show/hide menu functions
     function openMobileMenu() {
@@ -21,8 +21,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Toggle mobile menu
-    menuButton.addEventListener('click', openMobileMenu);
-    closeMenuButton.addEventListener('click', closeMobileMenu);
+    if (menuButton) {
+      menuButton.addEventListener('click', openMobileMenu);
+    }
+    
+    if (closeMenuButton) {
+      closeMenuButton.addEventListener('click', closeMobileMenu);
+    }
     
     // Close menu when clicking links
     mobileMenuLinks.forEach(link => {
@@ -48,16 +53,27 @@ document.addEventListener('DOMContentLoaded', function() {
   
     // Handle navbar appearance on scroll
     const nav = document.querySelector('nav');
+    const hero = document.getElementById('hero');
     
     function updateNavbarOnScroll() {
-      if (window.scrollY > 10) {
-        nav.classList.add('shadow-lg');
-        nav.classList.add('bg-white/95');
-        nav.classList.remove('bg-white/70');
+      const heroBottom = hero.getBoundingClientRect().bottom;
+      
+      if (heroBottom <= 80) {
+        // Past the hero section - use green navbar
+        nav.classList.remove('bg-white/70', 'bg-white/95');
+        nav.classList.add('bg-green-700', 'text-white', 'shadow-lg');
       } else {
-        nav.classList.remove('shadow-lg');
-        nav.classList.add('bg-white/70');
-        nav.classList.remove('bg-white/95');
+        // On hero section - use transparent/white navbar
+        nav.classList.remove('bg-green-700', 'text-white');
+        
+        if (window.scrollY > 10) {
+          nav.classList.add('bg-white/95', 'shadow-lg');
+          nav.classList.remove('bg-white/70');
+        } else {
+          nav.classList.add('bg-white/70');
+          nav.classList.remove('bg-white/95', 'shadow-lg');
+        }
+        nav.classList.add('text-gray-800');
       }
     }
     
@@ -68,7 +84,8 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         // Skip if it's a mobile menu link (already handled)
-        if (this.closest('.mobile-menu')) return;
+        const isMobileMenuLink = Array.from(mobileMenuLinks).includes(this);
+        if (isMobileMenuLink) return;
         
         e.preventDefault();
         const targetId = this.getAttribute('href');
@@ -79,17 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
             top: targetElement.offsetTop - 80,
             behavior: 'smooth'
           });
-        }
-      });
-    });
-  
-    // Fix for navigating from mobile menu
-    const navLinks = document.querySelectorAll('nav a[href^="#"]');
-    navLinks.forEach(link => {
-      link.addEventListener('click', function(e) {
-        // Close mobile menu if open
-        if (!mobileMenu.classList.contains('hidden')) {
-          closeMobileMenu();
         }
       });
     });
