@@ -1,57 +1,36 @@
-// Enhanced Mobile Navigation JavaScript
+// Updated Mobile Navigation JavaScript
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu toggle functionality
-    const menuButton = document.querySelector('button.md\\:hidden');
-    const mobileMenu = document.createElement('div');
-    mobileMenu.className = 'mobile-menu fixed inset-0 bg-white z-50 transform translate-x-full transition-transform duration-300 ease-in-out';
-    mobileMenu.innerHTML = `
-      <div class="flex justify-between items-center p-6 border-b">
-        <a href="#hero" class="flex items-center space-x-3">
-          <img src="images/logo.png" alt="MicroPig Logo" class="h-10 w-auto">
-          <span class="text-xl font-bold text-gray-800">MicroPig</span>
-        </a>
-        <button class="close-menu focus:outline-none">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-      <div class="p-6">
-        <nav class="flex flex-col space-y-4">
-          <a href="#team" class="text-lg font-medium py-2 border-b border-gray-100">Team</a>
-          <a href="#research" class="text-lg font-medium py-2 border-b border-gray-100">Research</a>
-          <a href="#impact" class="text-lg font-medium py-2 border-b border-gray-100">Impact</a>
-          <a href="#approach" class="text-lg font-medium py-2 border-b border-gray-100">Our Approach</a>
-          <a href="#resources" class="text-lg font-medium py-2 border-b border-gray-100">Resources</a>
-          <a href="#contact" class="mt-4 block w-full px-5 py-3 text-center rounded-full bg-gradient-to-r from-green-600 to-green-700 text-white font-medium">
-            Contact
-          </a>
-        </nav>
-      </div>
-    `;
-    document.body.appendChild(mobileMenu);
-  
-    // Open mobile menu
-    menuButton.addEventListener('click', function() {
-      mobileMenu.classList.remove('translate-x-full');
-      document.body.classList.add('overflow-hidden'); // Prevent scrolling when menu is open
-    });
-  
-    // Close mobile menu
-    const closeMenuButton = mobileMenu.querySelector('.close-menu');
-    closeMenuButton.addEventListener('click', function() {
-      mobileMenu.classList.add('translate-x-full');
-      document.body.classList.remove('overflow-hidden');
-    });
-  
-    // Close menu when clicking on links
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenuButton = document.getElementById('close-menu-button');
     const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+    
+    // Show/hide menu functions
+    function openMobileMenu() {
+      mobileMenu.classList.remove('translate-x-full', 'hidden');
+      document.body.classList.add('overflow-hidden');
+    }
+    
+    function closeMobileMenu() {
+      mobileMenu.classList.add('translate-x-full');
+      setTimeout(() => {
+        mobileMenu.classList.add('hidden');
+      }, 300); // Match this with transition duration
+      document.body.classList.remove('overflow-hidden');
+    }
+    
+    // Toggle mobile menu
+    menuButton.addEventListener('click', openMobileMenu);
+    closeMenuButton.addEventListener('click', closeMobileMenu);
+    
+    // Close menu when clicking links
     mobileMenuLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        mobileMenu.classList.add('translate-x-full');
-        document.body.classList.remove('overflow-hidden');
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        closeMobileMenu();
         
-        // Handle smooth scrolling
+        // Handle smooth scrolling to section
         const targetId = this.getAttribute('href');
         if (targetId.startsWith('#')) {
           const targetElement = document.querySelector(targetId);
@@ -61,29 +40,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 top: targetElement.offsetTop - 80,
                 behavior: 'smooth'
               });
-            }, 300); // Small delay to allow menu transition to complete
+            }, 300); // Small delay to match menu transition
           }
         }
       });
     });
   
-    // Add CSS for mobile menu
-    const style = document.createElement('style');
-    style.textContent = `
-      .mobile-menu {
-        height: 100vh;
-        overflow-y: auto;
-      }
-      
-      body.overflow-hidden {
-        overflow: hidden;
-      }
-    `;
-    document.head.appendChild(style);
-  
-    // Fix navbar scrolling behavior
+    // Handle navbar appearance on scroll
     const nav = document.querySelector('nav');
-    const hero = document.getElementById('hero');
     
     function updateNavbarOnScroll() {
       if (window.scrollY > 10) {
@@ -98,7 +62,51 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     window.addEventListener('scroll', updateNavbarOnScroll);
+    updateNavbarOnScroll(); // Initialize on page load
     
-    // Make sure navbar is initialized correctly on page load
-    updateNavbarOnScroll();
+    // Smooth scrolling for all anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        // Skip if it's a mobile menu link (already handled)
+        if (mobileMenuLinks.contains(this)) return;
+        
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  });
+  
+  // Add support for smooth scrolling to anchors
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      // Only handle non-menu links here
+      if (!this.closest('.mobile-menu')) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      }
+    });
+  });
+  
+  // Add shadow to navigation on scroll
+  window.addEventListener('scroll', function() {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 10) {
+      nav.classList.add('shadow-lg');
+    } else {
+      nav.classList.remove('shadow-lg');
+    }
   });

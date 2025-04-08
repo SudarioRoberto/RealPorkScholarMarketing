@@ -339,15 +339,15 @@
 <nav id="navbar" class="fixed w-full px-6 md:px-12 py-4 bg-white/70 backdrop-blur-lg shadow-md z-50 transition-all duration-300">
     <div class="max-w-6xl mx-auto flex justify-between items-center">
       
-<!-- Left side: Logo -->
-<a href="#hero" class="flex items-center space-x-3">
-    <img src="images/logo.png" alt="MicroPig Logo" class="h-12 md:h-14 w-auto object-contain" />
-    <div class="hidden md:flex flex-col leading-tight">
-      <span class="text-xl font-bold text-gray-800">MicroPig</span>
-      <span class="text-xs text-gray-500 tracking-wide">Swine Microbiome Research</span>
-    </div>
-  </a>
-  
+      <!-- Left side: Logo -->
+      <a href="#hero" class="flex items-center space-x-3">
+          <img src="images/logo.png" alt="MicroPig Logo" class="h-12 md:h-14 w-auto object-contain" />
+          <div class="hidden md:flex flex-col leading-tight">
+            <span class="text-xl font-bold text-gray-800">MicroPig</span>
+            <span class="text-xs text-gray-500 tracking-wide">Swine Microbiome Research</span>
+          </div>
+      </a>
+      
       <!-- Center: Navigation -->
       <div class="hidden md:flex space-x-8">
         <a href="#team" class="nav-link text-gray-700 hover:text-gray-900">Team</a>
@@ -362,15 +362,41 @@
         <a href="#contact" class="hidden md:block px-5 py-2 rounded-full bg-gradient-to-r from-green-600 to-green-700 text-white font-medium text-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
             Contact
         </a>
-        <button class="md:hidden text-gray-700 focus:outline-none">
+        <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
       </div>
-  
     </div>
-  </nav>
+</nav>
+
+<!-- This will be created dynamically by JavaScript, but you can add it directly if you prefer -->
+<div id="mobile-menu" class="mobile-menu fixed inset-0 bg-white z-50 transform translate-x-full transition-transform duration-300 ease-in-out hidden md:hidden">
+  <div class="flex justify-between items-center p-6 border-b">
+    <a href="#hero" class="flex items-center space-x-3">
+      <img src="images/logo.png" alt="MicroPig Logo" class="h-10 w-auto">
+      <span class="text-xl font-bold text-gray-800">MicroPig</span>
+    </a>
+    <button id="close-menu-button" class="close-menu focus:outline-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+  <div class="p-6">
+    <nav class="flex flex-col space-y-4">
+      <a href="#team" class="text-lg font-medium py-2 border-b border-gray-100">Team</a>
+      <a href="#research" class="text-lg font-medium py-2 border-b border-gray-100">Research</a>
+      <a href="#impact" class="text-lg font-medium py-2 border-b border-gray-100">Impact</a>
+      <a href="#approach" class="text-lg font-medium py-2 border-b border-gray-100">Our Approach</a>
+      <a href="#resources" class="text-lg font-medium py-2 border-b border-gray-100">Resources</a>
+      <a href="#contact" class="mt-4 block w-full px-5 py-3 text-center rounded-full bg-gradient-to-r from-green-600 to-green-700 text-white font-medium">
+        Contact
+      </a>
+    </nav>
+  </div>
+</div>
   
 
   <!-- Hero Section - Modern design with animated elements -->
@@ -1471,7 +1497,6 @@
     // Run on scroll
     window.addEventListener('scroll', animateOnScroll);
   </script>
-
         <script>
         const nav = document.getElementById('navbar');
         const hero = document.getElementById('hero');
