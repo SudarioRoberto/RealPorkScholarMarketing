@@ -358,6 +358,7 @@
         <a href="#approach" class="nav-link text-gray-700 hover:text-green-600 font-medium">Our Approach</a>
         <a href="#resources" class="nav-link text-gray-700 hover:text-green-600 font-medium">Resources</a>
         <a href="#contact" class="nav-link text-gray-700 hover:text-green-600 font-medium">Contact</a>
+        <a href="blog.html" class="nav-link">Blog</a>
       </div>
   
       <!-- Mobile menu button -->
@@ -417,6 +418,12 @@
           </a>
           <a href="#resources" class="text-lg font-medium py-3 px-2 border-b border-gray-100 flex justify-between items-center">
             Resources
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+            </svg>
+          </a>
+          <a href="blog.html" class="text-lg font-medium py-3 px-2 border-b border-gray-100 flex justify-between items-center">
+            Blog
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
             </svg>
@@ -1130,10 +1137,10 @@
         </p>
       </div>
       
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="card bg-white shadow-md overflow-hidden slide-up">
+      <div class="grid md:grid-cols-3 gap-8 ">
+        <div class="card bg-white shadow-md overflow-hidden slide-up cursor-pointer" onclick="openVideoModal('S-vZzJM9usA')">
           <div class="relative">
-            <img src="https://images.unsplash.com/photo-1579154392429-0e6b4e850ad8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+            <img src="images/microbiome.png" 
                  alt="Video tutorial on microbiome" 
                  class="w-full h-48 object-cover">
             <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
@@ -1145,13 +1152,13 @@
           <div class="p-6">
             <div class="flex items-center mb-3">
               <span class="bg-green-100 text-green-800 text-xs font-medium px-3 py-1 rounded-full">Video</span>
-              <span class="text-gray-400 text-sm ml-2">15 min</span>
+              <span class="text-gray-400 text-sm ml-2">30 min</span>
             </div>
             <h3 class="text-xl font-bold mb-3">Microbiome Basics for Producers</h3>
             <p class="text-gray-600 mb-4">
               Learn the fundamentals of swine gut microbiome and its practical implications for farm management and performance.
             </p>
-            <a href="#" class="inline-flex items-center text-primary font-medium hover:text-primary-light transition-colors">
+            <a href="https://www.youtube.com/watch?v=S-vZzJM9usA" class="inline-flex items-center text-primary font-medium hover:text-primary-light transition-colors">
               Watch video
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
@@ -1159,15 +1166,42 @@
             </a>
           </div>
         </div>
-        
-        <div class="card bg-white shadow-md overflow-hidden slide-up" style="transition-delay: 0.2s">
+        <!-- In the Resources section's grid -->
+        <div class="card bg-white shadow-md overflow-hidden">
+            <div class="relative">
+            <img src="images/metadata.png" 
+                alt="Meta-analysis article" 
+                class="w-full h-48 object-cover">
+            <div class="absolute top-3 right-3">
+                <div class="bg-white/80 backdrop-blur-sm p-2 rounded-full">
+                <i class="fas  text-gray-800"></i>
+                </div>
+            </div>
+            </div>
+            <div class="p-6">
+            <div class="flex items-center mb-3">
+                <span class="bg-green-100 text-green-800 text-xs font-medium px-3 py-1 rounded-full">Blog</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3">The Power of Meta-Analysis in Swine Gut Microbiome Research</h3>
+            <p class="text-gray-600 mb-4">
+                Understanding how combined research findings create a stronger foundation for sustainable pork production through microbiome optimization.
+            </p>
+            <a href="blog-meta-analysis.html" class="inline-flex items-center text-primary font-medium hover:text-primary-light transition-colors">
+                Read article
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+              </svg>
+            </a>
+            </div>
+        </div>
+        <div class="card bg-white shadow-md overflow-hidden" style="transition-delay: 0.2s">
           <div class="relative">
-            <img src="images/feeder.jpeg" 
+            <img src="images/postbiotic.png" 
                  alt="Infographic on fiber digestion" 
                  class="w-full h-48 object-cover">
             <div class="absolute top-3 right-3">
               <div class="bg-white/80 backdrop-blur-sm p-2 rounded-full">
-                <i class="fas fa-image text-gray-800"></i>
+                <i class="fas text-gray-800"></i>
               </div>
             </div>
           </div>
@@ -1180,38 +1214,9 @@
                 Dietary means of influencing the gut microbiome and its metabolic activities, as well as intestinal integrity and digestive health.
             </p>
             <a href="https://www.realporktrust.org/post/prebiotics-probiotics-and-postbiotics-for-pigs-gut-health" class="inline-flex items-center text-primary font-medium hover:text-primary-light transition-colors">
-              View blog
-              <svg xmlns="https://www.realporktrust.org/post/prebiotics-probiotics-and-postbiotics-for-pigs-gut-health" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
-              </svg>
-            </a>
-          </div>
-        </div>
-        
-        <div class="card bg-white shadow-md overflow-hidden slide-up" style="transition-delay: 0.4s">
-          <div class="relative">
-            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                 alt="Research publication" 
-                 class="w-full h-48 object-cover">
-            <div class="absolute top-3 right-3">
-              <div class="bg-white/80 backdrop-blur-sm p-2 rounded-full">
-                <i class="fas fa-file-pdf text-gray-800"></i>
-              </div>
-            </div>
-          </div>
-          <div class="p-6">
-            <div class="flex items-center mb-3">
-              <span class="bg-green-100 text-green-800 text-xs font-medium px-3 py-1 rounded-full">Guide</span>
-              <span class="text-gray-400 text-sm ml-2">42 pages</span>
-            </div>
-            <h3 class="text-xl font-bold mb-3">Producer's Guide to Microbiome</h3>
-            <p class="text-gray-600 mb-4">
-              Step-by-step implementation strategies for microbiome-focused nutrition with real farm case studies and practical worksheets.
-            </p>
-            <a href="#" class="inline-flex items-center text-primary font-medium hover:text-primary-light transition-colors">
-              Download PDF
+                Read article
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
               </svg>
             </a>
           </div>
@@ -1411,23 +1416,22 @@
         </div>
         
         <div>
-          <h5 class="font-bold text-white text-lg mb-4">Quick Links</h5>
-          <ul class="space-y-3">
-            <li><a href="#research" class="hover:text-white transition-colors footer-link">Research</a></li>
-            <li><a href="#impact" class="hover:text-white transition-colors footer-link">Impact</a></li>
-            <li><a href="#approach" class="hover:text-white transition-colors footer-link">Our Approach</a></li>
-            <li><a href="#resources" class="hover:text-white transition-colors footer-link">Resources</a></li>
-            <li><a href="#contact" class="hover:text-white transition-colors footer-link">Contact</a></li>
-          </ul>
-        </div>
+            <h5 class="font-bold text-white text-lg mb-4">Quick Links</h5>
+            <ul class="space-y-3">
+              <li><a href="#research" class="hover:text-white transition-colors footer-link">Research</a></li>
+              <li><a href="#impact" class="hover:text-white transition-colors footer-link">Impact</a></li>
+              <li><a href="#approach" class="hover:text-white transition-colors footer-link">Our Approach</a></li>
+              <li><a href="blog.html" class="hover:text-white transition-colors footer-link">Blog</a></li> <!-- Add this line -->
+              <li><a href="#contact" class="hover:text-white transition-colors footer-link">Contact</a></li>
+            </ul>
+          </div>
         
         <div>
           <h5 class="font-bold text-white text-lg mb-4">Resources</h5>
           <ul class="space-y-3">
             <li><a href="https://scholar.google.com/citations?hl=en&user=0j08MsQAAAAJ&view_op=list_works&sortby=pubdate" class="hover:text-white transition-colors footer-link">Research Publications</a></li>
-            <li><a href="coming-soon.html" class="hover:text-white transition-colors footer-link">Educational Videos</a></li>
-            <li><a href="coming-soon.html" class="hover:text-white transition-colors footer-link">Producer's Guide</a></li>
-            <li><a href="coming-soon.html" class="hover:text-white transition-colors footer-link">Webinar Recordings</a></li>
+            <li><a href="https://www.youtube.com/watch?v=S-vZzJM9usA" class="hover:text-white transition-colors footer-link">Educational Videos</a></li>
+            <li><a href="https://www.youtube.com/watch?v=S-vZzJM9usA" class="hover:text-white transition-colors footer-link">Webinar Recordings</a></li>
             <li><a href="https://github.com/SudarioRoberto" class="hover:text-white transition-colors footer-link">Implementation Tools</a></li>
           </ul>
         </div>
@@ -1532,6 +1536,72 @@
     window.addEventListener('scroll', animateOnScroll);
   </script>
 <script src="js/main.js"></script>
+
+<!-- Video Modal -->
+<div id="videoModal" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden items-center justify-center">
+    <div class="bg-white rounded-lg w-full max-w-4xl mx-4 sm:mx-auto p-1 relative">
+      <!-- Close button -->
+      <button onclick="closeVideoModal()" class="absolute -top-10 right-0 text-white text-xl hover:text-gray-300 focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      
+      <!-- Video container with 16:9 aspect ratio -->
+      <div class="relative" style="padding-bottom: 56.25%;">
+        <iframe id="videoFrame" class="absolute top-0 left-0 w-full h-full rounded-lg" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Add this JavaScript before the closing </body> tag -->
+  <script>
+    // Function to open the video modal
+    function openVideoModal(videoId) {
+      // Set the YouTube embed URL with the provided video ID
+      document.getElementById('videoFrame').src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
+      
+      // Show the modal
+      const modal = document.getElementById('videoModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      
+      // Prevent body scrolling when modal is open
+      document.body.style.overflow = 'hidden';
+    }
+    
+    // Function to close the video modal
+    function closeVideoModal() {
+      // Hide the modal
+      const modal = document.getElementById('videoModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      
+      // Stop the video by clearing the iframe src
+      document.getElementById('videoFrame').src = '';
+      
+      // Re-enable body scrolling
+      document.body.style.overflow = '';
+    }
+    
+    // Close the modal if user clicks outside the video container
+    document.getElementById('videoModal').addEventListener('click', function(event) {
+      if (event.target === this) {
+        closeVideoModal();
+      }
+    });
+    
+    // Close modal with ESC key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape' && !document.getElementById('videoModal').classList.contains('hidden')) {
+        closeVideoModal();
+      }
+    });
+  </script>
 
 </body>
         
