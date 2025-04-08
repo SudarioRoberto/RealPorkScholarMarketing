@@ -536,3 +536,55 @@
       font-size: 16px !important; /* Prevents iOS zoom on focus */
     }
   }
+  /* Enhanced navbar styling */
+nav#navbar {
+    background-color: rgba(255, 255, 255, 0.9) !important; /* More opaque white background */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Always show a subtle shadow */
+  }
+  
+  /* Add a subtle border at the bottom for better visibility on white backgrounds */
+  nav#navbar {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Ensure text is always visible */
+  nav#navbar .nav-link {
+    color: #1a1a1a !important; /* Darker text for better contrast */
+    font-weight: 500;
+  }
+  
+  nav#navbar .nav-link:hover {
+    color: #1B5B3F !important; /* Your primary green color */
+  }
+  
+  /* Mobile menu specific styles */
+  #mobile-menu {
+    background-color: white;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+  }
+  
+  /* Make mobile menu button more visible */
+  #mobile-menu-button {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    padding: 8px;
+  }
+  
+  /* Ensure the menu is properly positioned */
+  .mobile-menu {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 280px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  /* Fix for transparent navbar on video background */
+  @media (max-width: 768px) {
+    nav#navbar {
+      background-color: rgba(255, 255, 255, 0.95) !important;
+    }
+  }

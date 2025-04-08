@@ -372,31 +372,34 @@
 </nav>
 
 <!-- This will be created dynamically by JavaScript, but you can add it directly if you prefer -->
-<div id="mobile-menu" class="mobile-menu fixed inset-0 bg-white z-50 transform translate-x-full transition-transform duration-300 ease-in-out hidden md:hidden">
-  <div class="flex justify-between items-center p-6 border-b">
-    <a href="#hero" class="flex items-center space-x-3">
-      <img src="images/logo.png" alt="MicroPig Logo" class="h-10 w-auto">
-      <span class="text-xl font-bold text-gray-800">MicroPig</span>
-    </a>
-    <button id="close-menu-button" class="close-menu focus:outline-none">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    </button>
+<!-- Replace your current mobile menu section with this improved version -->
+<div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-50 z-50 transform translate-x-full transition-transform duration-300 ease-in-out hidden md:hidden">
+    <div class="absolute right-0 top-0 bottom-0 w-72 bg-white shadow-xl flex flex-col h-full">
+      <div class="flex justify-between items-center p-6 border-b">
+        <a href="#hero" class="flex items-center space-x-3">
+          <img src="images/logo.png" alt="MicroPig Logo" class="h-10 w-auto">
+          <span class="text-xl font-bold text-gray-800">MicroPig</span>
+        </a>
+        <button id="close-menu-button" class="close-menu focus:outline-none text-gray-700 hover:text-gray-900">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="flex-1 overflow-y-auto p-6">
+        <nav class="flex flex-col space-y-4">
+          <a href="#team" class="text-lg font-medium py-2 border-b border-gray-100 hover:text-green-600">Team</a>
+          <a href="#research" class="text-lg font-medium py-2 border-b border-gray-100 hover:text-green-600">Research</a>
+          <a href="#impact" class="text-lg font-medium py-2 border-b border-gray-100 hover:text-green-600">Impact</a>
+          <a href="#approach" class="text-lg font-medium py-2 border-b border-gray-100 hover:text-green-600">Our Approach</a>
+          <a href="#resources" class="text-lg font-medium py-2 border-b border-gray-100 hover:text-green-600">Resources</a>
+          <a href="#contact" class="mt-4 block w-full px-5 py-3 text-center rounded-full bg-gradient-to-r from-green-600 to-green-700 text-white font-medium">
+            Contact
+          </a>
+        </nav>
+      </div>
+    </div>
   </div>
-  <div class="p-6">
-    <nav class="flex flex-col space-y-4">
-      <a href="#team" class="text-lg font-medium py-2 border-b border-gray-100">Team</a>
-      <a href="#research" class="text-lg font-medium py-2 border-b border-gray-100">Research</a>
-      <a href="#impact" class="text-lg font-medium py-2 border-b border-gray-100">Impact</a>
-      <a href="#approach" class="text-lg font-medium py-2 border-b border-gray-100">Our Approach</a>
-      <a href="#resources" class="text-lg font-medium py-2 border-b border-gray-100">Resources</a>
-      <a href="#contact" class="mt-4 block w-full px-5 py-3 text-center rounded-full bg-gradient-to-r from-green-600 to-green-700 text-white font-medium">
-        Contact
-      </a>
-    </nav>
-  </div>
-</div>
   
 
   <!-- Hero Section - Modern design with animated elements -->

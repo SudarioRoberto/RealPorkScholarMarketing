@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Handle smooth scrolling to section
         const targetId = this.getAttribute('href');
-        if (targetId.startsWith('#')) {
+        if (targetId && targetId.startsWith('#')) {
           const targetElement = document.querySelector(targetId);
           if (targetElement) {
             setTimeout(() => {
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         // Skip if it's a mobile menu link (already handled)
-        if (mobileMenuLinks.contains(this)) return;
+        if (this.closest('.mobile-menu')) return;
         
         e.preventDefault();
         const targetId = this.getAttribute('href');
@@ -82,31 +82,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     });
-  });
   
-  // Add support for smooth scrolling to anchors
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      // Only handle non-menu links here
-      if (!this.closest('.mobile-menu')) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          window.scrollTo({
-            top: target.offsetTop - 80,
-            behavior: 'smooth'
-          });
+    // Fix for navigating from mobile menu
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        // Close mobile menu if open
+        if (!mobileMenu.classList.contains('hidden')) {
+          closeMobileMenu();
         }
-      }
+      });
     });
-  });
-  
-  // Add shadow to navigation on scroll
-  window.addEventListener('scroll', function() {
-    const nav = document.querySelector('nav');
-    if (window.scrollY > 10) {
-      nav.classList.add('shadow-lg');
-    } else {
-      nav.classList.remove('shadow-lg');
-    }
-  });
+});
